@@ -1,0 +1,72 @@
+﻿<ui:FluentWindow x:Class="TaskCheck.Desktop.RegisterWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:ui="http://schemas.lepo.co/wpfui/2022/xaml"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:TaskCheck.Desktop"
+        xmlns:viewModels="clr-namespace:TaskCheck.Desktop.ViewModels" xmlns:Components="clr-namespace:TaskCheck.Desktop.Components"
+        d:DataContext="{d:DesignInstance Type=viewModels:RegisterWindowViewModel}"
+        mc:Ignorable="d"
+        Title="RegisterWindow" Height="450" Width="800" MouseDown="WindowDrag">
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="auto"></RowDefinition>
+            <RowDefinition Height="auto"></RowDefinition>
+            <RowDefinition Height="auto"></RowDefinition>
+            <RowDefinition Height="auto"></RowDefinition>
+        </Grid.RowDefinitions>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="*"></ColumnDefinition>
+            <ColumnDefinition Width="*"></ColumnDefinition>
+        </Grid.ColumnDefinitions>
+        <Grid.Background>
+            <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
+                <GradientStop Color="#FF39516B"/>
+                <GradientStop Color="#FF799BB7" Offset="1"/>
+            </LinearGradientBrush>
+        </Grid.Background>
+
+        <ui:TitleBar Grid.ColumnSpan="2"></ui:TitleBar>
+
+        <StackPanel Grid.Row="0" Grid.ColumnSpan="2" VerticalAlignment="Top" >
+            <ui:TextBlock  FontSize="40" Foreground="#EAEEF4" TextAlignment="Center" FontTypography="TitleLarge" Margin="0,21,0,0">
+                Register to Task Check</ui:TextBlock>
+        </StackPanel>
+
+        <StackPanel Grid.Row="1" Grid.Column="0" Width="360" Margin="0,40,0,0">
+            <Label Foreground="#EAEEF4">Username:</Label>
+            <ui:TextBox x:Name="UsernameBox" Background="#EAEEF4" Height="40" Text="{Binding Username}"></ui:TextBox>
+            <ui:TextBlock x:Name="UsernameErrorBlock" Foreground="#ad0c0c" FontSize="12" TextWrapping="WrapWithOverflow" Text="{Binding UsernameErrMsg}">
+            </ui:TextBlock>
+        </StackPanel>
+
+        <StackPanel Grid.Row="2" Grid.Column="0" Width="360" Margin="0,40,0,0">
+            <Label Foreground="#EAEEF4">Email:</Label>
+            <ui:TextBox x:Name="EmailBox" Background="#EAEEF4" Height="40" Text="{Binding Email}"></ui:TextBox>
+            <ui:TextBlock x:Name="EmailErrorBlock" Foreground="#ad0c0c" FontSize="12" TextWrapping="WrapWithOverflow" Text="{Binding EmailErrMsg}">
+            </ui:TextBlock>
+        </StackPanel>
+
+
+        <StackPanel Grid.Row="1" Grid.Column="1" Width="360" Margin="0,40,0,0">
+            <Label Foreground="#EAEEF4">Password:</Label>
+            <Components:CustomPasswordBox x:Name="PasswordTextBox" Height="40" 
+                              Password="{Binding Password, UpdateSourceTrigger=PropertyChanged, Mode=TwoWay}"/>
+            <ui:TextBlock x:Name="PasswordErrorBlock" Foreground="#ad0c0c" FontSize="12" TextWrapping="WrapWithOverflow" Text="{Binding PasswordErrMsg}">
+            </ui:TextBlock>
+        </StackPanel>
+
+        <StackPanel Grid.Row="2" Grid.Column="1" Width="360" Margin="0,40,0,0">
+            <Label Foreground="#EAEEF4">Repeat password:</Label>
+            <Components:CustomPasswordBox x:Name="PasswordRepeatTextBox" Height="40" 
+                              Password="{Binding PasswordRepeat, UpdateSourceTrigger=PropertyChanged, Mode=TwoWay}"/>
+            <ui:TextBlock x:Name="PasswordRepeatErrorBlock" Foreground="#ad0c0c" FontSize="12" TextWrapping="WrapWithOverflow" 
+                          Text="{Binding PasswordRepeatErrMsg}"></ui:TextBlock>
+        </StackPanel>
+
+        <ui:Button x:Name="RegisterButton" Background="#EAEEF4" Grid.ColumnSpan="2" Grid.Row="3" HorizontalAlignment="Center" Margin="0,60,0,0" Width="200"
+                   Height="50" Command="{Binding Register}">Register</ui:Button>
+
+    </Grid>
+</ui:FluentWindow>

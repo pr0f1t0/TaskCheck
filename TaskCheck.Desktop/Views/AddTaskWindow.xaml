@@ -1,0 +1,76 @@
+﻿<ui:FluentWindow x:Class="TaskCheck.Desktop.Views.AddTaskWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        x:Name="AddTaskWindowView"
+        xmlns:ui="http://schemas.lepo.co/wpfui/2022/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:viewModels="clr-namespace:TaskCheck.Desktop.ViewModels"
+        d:DataContext="{d:DesignInstance Type=viewModels:AddTaskViewModel}"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:TaskCheck.Desktop.Views"
+        mc:Ignorable="d"
+        Title="AddTaskWindow" Height="450" Width="700">
+    <Grid>
+        <Grid.Background>
+            <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
+                <GradientStop Color="#FF39516B"/>
+                <GradientStop Color="#FF799BB7" Offset="1"/>
+            </LinearGradientBrush>
+        </Grid.Background>
+
+        <Grid.RowDefinitions>
+            <RowDefinition Height="auto"></RowDefinition>
+            <RowDefinition Height="auto"></RowDefinition>
+            <RowDefinition Height="auto"></RowDefinition>
+            <RowDefinition Height="auto"></RowDefinition>
+            <RowDefinition Height="auto"></RowDefinition>
+            <RowDefinition Height="auto"></RowDefinition>
+            <RowDefinition Height="*"></RowDefinition>
+            <RowDefinition Height="auto"></RowDefinition>
+        </Grid.RowDefinitions>
+
+        <StackPanel Orientation="Horizontal" Grid.Row="0" HorizontalAlignment="Right">
+            <ui:TitleBarButton ButtonType="Close" HorizontalAlignment="Right" Click="CloseButton_Click"></ui:TitleBarButton>
+            <ui:TitleBarButton ButtonType="Maximize" HorizontalAlignment="Right" Click="MaximiseButton_Click"></ui:TitleBarButton>
+        </StackPanel>
+
+
+        <StackPanel Grid.Row="1" Grid.ColumnSpan="3" VerticalAlignment="Top" >
+            <ui:TextBlock  FontSize="40" Foreground="#EAEEF4" TextAlignment="Center" FontTypography="TitleLarge">Add a task</ui:TextBlock>
+        </StackPanel>
+
+        <StackPanel Grid.Row="2" HorizontalAlignment="Center">
+            <ui:TextBlock Foreground="#EAEEF4" FontSize="28" FontTypography="Body">Task title:</ui:TextBlock>
+            <ui:TextBox x:Name="TaskTitleBox" Background="#EAEEF4" Grid.Row="2" Width="500" Text="{Binding TaskTitle}"></ui:TextBox>
+            <ui:TextBlock x:Name="TaskTitleErrorBlock" Foreground="#ad0c0c" FontSize="12" TextWrapping="WrapWithOverflow"
+                          Text="{Binding TaskTitleErrMsg}"></ui:TextBlock>
+        </StackPanel>
+
+        <StackPanel Grid.Row="3" HorizontalAlignment="Center">
+            <ui:TextBlock Foreground="#EAEEF4" FontSize="28" FontTypography="Body">Task details:</ui:TextBlock>
+            <ui:TextBox x:Name="TaskDetailsBox" Background="#EAEEF4" Grid.Row="2" Width="500" Text="{Binding TaskDescription}"></ui:TextBox>
+            <ui:TextBlock x:Name="TaskDetailsErrorBlock" Foreground="#ad0c0c" FontSize="12" TextWrapping="WrapWithOverflow"
+                          Text="{Binding TaskDescriptionErrMsg}"></ui:TextBlock>
+            <ui:TextBlock x:Name="TaskDueDateErrorBlock" Foreground="#ad0c0c" FontSize="12" TextWrapping="WrapWithOverflow"
+                          Text="{Binding TaskDueDateErrMsg}"></ui:TextBlock>
+        </StackPanel>
+
+        <DatePicker x:Name="DatePicker" Grid.Row="7" SelectedDate="{Binding TaskDueDate}" HorizontalAlignment="Left" Margin="10,0,0,0">
+        </DatePicker>
+
+
+
+        <ui:Button x:Name="RegisterButton" Background="#EAEEF4" Grid.Row="7" HorizontalAlignment="Center" Width="200"
+                   Height="50" Command="{Binding AddTask}" CommandParameter="{Binding ElementName=AddTaskWindowView}" 
+                   Appearance="Light">Add</ui:Button>
+
+
+        <StackPanel Grid.Row="7" HorizontalAlignment="Right" Margin="0,0,5,0">
+            <ui:TextBlock Foreground="#EAEEF4" FontTypography="Body" FontSize="20">Mark as important:</ui:TextBlock>
+            <CheckBox x:Name="ImportantTaskCheckBox" HorizontalAlignment="Center" 
+                      IsChecked="{Binding IsImportant}" BorderBrush="Black" Margin="0,10,0,0" />
+        </StackPanel>
+
+
+    </Grid>
+</ui:FluentWindow>

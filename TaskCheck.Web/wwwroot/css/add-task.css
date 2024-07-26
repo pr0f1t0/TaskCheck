@@ -1,0 +1,97 @@
+html, 
+body {
+    height: 100%;
+    line-height: 1;
+    font-size: 14px;
+    padding: 0;
+    margin: 0;
+    font-family: "Roboto", sans-serif;
+    background: linear-gradient(180deg, #34495E 0%, #2D3C4D 50%, #1E2833 100%);
+}
+
+*::before
+*::after {
+    padding: 0;
+    margin: 0;
+    border: 0;
+    box-sizing: border-box;
+}
+
+a {
+    text-decoration: none;
+}
+
+ul,
+ol,
+li {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+img {
+    vertical-align: top;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+    font-weight: inherit;
+    margin: 0;
+}
+
+p {
+    margin: 0;
+}
+
+.container {
+    max-width: 700px;
+    margin: 0 auto;
+    background: linear-gradient(180deg, #597E9F 0%, #2D3C4D 100%);
+}
+
+.title {
+    color: #FFF;
+    font-family: "Inter", sans-serif;
+    font-size: 50px;
+    text-align: center;
+    padding-top: 20px;
+}
+
+.txt-task {
+    font-size: 20px;
+    color: #FFF;
+    padding-top: 30px;
+    padding-left: 28px;
+}
+
+.task-box {
+    padding-top: 229px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding-bottom: 21px;
+}
+
+.datepicker {
+    padding-left: 28px;
+}
+
+.link-save {
+    padding-left: 146px;
+    font-size: 20px;
+    color: #39516B;
+    background-color: #D1DCE6;
+    width: 200px;
+    display: block;
+    padding: 13px 0px;
+    border-radius: 8px;
+    text-align: center;
+}
+
+.important {
+    padding-right: 20px;
+}

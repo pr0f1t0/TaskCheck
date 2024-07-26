@@ -1,0 +1,133 @@
+html, 
+body {
+    height: 100%;
+    line-height: 1;
+    font-size: 14px;
+    padding: 0;
+    margin: 0;
+    font-family: "Roboto", sans-serif;
+    background: linear-gradient(180deg, #34495E 0%, #2D3C4D 50%, #1E2833 100%);
+}
+
+*::before
+*::after {
+    padding: 0;
+    margin: 0;
+    border: 0;
+    box-sizing: border-box;
+}
+
+
+ul,
+ol,
+li {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+img {
+    vertical-align: top;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+    font-weight: inherit;
+    margin: 0;
+}
+
+p {
+    margin: 0;
+}
+
+.container {
+    max-width: 720px;
+    margin: 0 auto;
+    background: linear-gradient(180deg, #39516B 0%, #799BB7 100%);
+    padding-bottom: 26px;
+}
+
+.title-login {
+    color: #EAEEF4;
+    text-shadow: 0px 6px 8px rgba(0, 0, 0, 0.25);
+    font-size: 70px;
+    padding-top: 36px;
+    text-align: center;
+}
+
+form {
+    padding-left: 180px;
+    padding-top: 28px;
+}
+
+.txt-username {
+    color: #EAEEF4;
+    font-size: 20px;
+}
+
+.txt-password {
+    padding-top: 27px;
+    color: #EAEEF4;
+    font-size: 20px;
+}
+
+.input-name {
+    margin-top: 7px;
+    min-width: 360px;
+    min-height: 40px;
+    border-radius: 7px;
+    background-color: #D1DCE6;
+    border: none;
+    font-size: 20px;
+}
+
+.input-password {
+    margin-top: 7px;
+    min-width: 360px;
+    min-height: 40px;
+    border-radius: 7px;
+    background-color: #D1DCE6;
+    border: none;
+    font-size: 20px;
+}
+
+.link-login {
+    margin: 0 auto;
+    margin-top: 34px;
+    color: #39516B;
+    font-size: 20px;
+    background: #D1DCE6;
+    width: 200px;
+    display: block;
+    padding: 13px 0px;
+    border-radius: 8px;
+    text-align: center;
+    text-decoration: none;
+    box-shadow: 0px 4px 4px 0px rgba(0, 0, 0, 0.25);
+    transition: all 0.5s ease;
+}
+
+.link-login:hover {
+    background-color: #a3a8ad;
+}
+
+.create-account {
+    text-align: center;
+    color: #EAEEF4;
+    text-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+    font-size: 20px;
+    padding-top: 34px;
+}
+
+.link-register {
+    color: #EAEEF4;
+    transition: all 0.5s ease;
+}
+
+.link-register:hover {
+    color: #aaadb3;
+}

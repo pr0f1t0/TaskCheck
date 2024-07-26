@@ -1,0 +1,100 @@
+﻿<ui:FluentWindow x:Class="TaskCheck.Desktop.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:ui="http://schemas.lepo.co/wpfui/2022/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:TaskCheck.Desktop"
+        xmlns:viewModels="clr-namespace:TaskCheck.Desktop.ViewModels" xmlns:Components="clr-namespace:TaskCheck.Desktop.Components"
+        d:DataContext="{d:DesignInstance Type=viewModels:MainWindowViewModel}"
+        mc:Ignorable="d"
+        Title="MainWindow" Height="720" Width="1080" MouseDown="WindowDrag">
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="auto"/>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="auto"/>
+        </Grid.RowDefinitions>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="auto"/>
+            <ColumnDefinition Width="*"/>
+        </Grid.ColumnDefinitions>
+        <Grid.Background>
+            <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
+                <GradientStop Color="#FF39516B"/>
+                <GradientStop Color="#FF799BB7" Offset="1"/>
+            </LinearGradientBrush>
+        </Grid.Background>
+
+        <ui:TitleBar Grid.ColumnSpan="2"></ui:TitleBar>
+
+
+
+        <ui:TextBlock Foreground="#EAEEF4" FontSize="60" FontTypography="Title" Grid.Column="1" HorizontalAlignment="Center">Your tasks</ui:TextBlock>
+        <Line Grid.Row="1" Grid.ColumnSpan="2" Fill="#88A4A8" StrokeThickness="5"></Line>
+
+
+
+
+        <Grid Width="320" HorizontalAlignment="Left" Grid.Column="0" Grid.RowSpan="3">
+            <Grid.Background>
+                <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
+                    <GradientStop Color="#34495E"/>
+                    <GradientStop Color="#2D3C4D" Offset="0.5"/>
+                    <GradientStop Color="#1E2833" Offset="1"/>
+                </LinearGradientBrush>
+            </Grid.Background>
+            <Grid.RowDefinitions>
+                <RowDefinition Height="auto"></RowDefinition>
+                <RowDefinition Height="auto"></RowDefinition>
+                <RowDefinition Height="auto"></RowDefinition>
+                <RowDefinition Height="auto"></RowDefinition>
+                <RowDefinition Height="auto"></RowDefinition>
+                <RowDefinition Height="auto"></RowDefinition>
+                <RowDefinition Height="auto"></RowDefinition>
+            </Grid.RowDefinitions>
+
+
+            <ui:TextBlock Grid.Row="0" HorizontalAlignment="Center" Foreground="#EAEEF4" FontSize="48" FontTypography="Title">
+                Task Check</ui:TextBlock>
+
+
+            <ui:Button x:Name="AllTasksButton" HorizontalAlignment="Stretch" Grid.Row="2" Background="{x:Null}" BorderBrush="{x:Null}" Margin="0,50,0,0" >
+                <StackPanel Orientation="Horizontal" VerticalAlignment="Center" HorizontalAlignment="Stretch">
+                    <ui:ImageIcon Source="/Images/AllTasks1.png" Margin="0,0,57,0" VerticalAlignment="Center"/>
+                    <TextBlock Foreground="#EAEEF4" FontSize="30" VerticalAlignment="Center" Margin="0,0,50,0">All Tasks</TextBlock>
+                    <TextBlock x:Name="AllTasksNumber" Foreground="#EAEEF4" FontSize="30" VerticalAlignment="Center" Margin="0,0,0,0" 
+                               HorizontalAlignment="Right" Text="{Binding TaskNumText}"></TextBlock>
+                </StackPanel>
+            </ui:Button>
+
+            <ui:Button HorizontalAlignment="Stretch" Grid.Row="3" Background="{x:Null}" BorderBrush="{x:Null}" Margin="0,50,0,0">
+                <StackPanel Orientation="Horizontal" VerticalAlignment="Center" HorizontalAlignment="Stretch">
+                    <ui:ImageIcon Source="/Images/Important1.png" Margin="0,0,50,0" VerticalAlignment="Center"/>
+                    <TextBlock Foreground="#EAEEF4" FontSize="30" VerticalAlignment="Center" Margin="0,0,50,0">Important</TextBlock>
+                    <TextBlock x:Name="ImportantTasksNumber" Foreground="#EAEEF4" FontSize="30" VerticalAlignment="Center" Margin="0,0,0,0" HorizontalAlignment="Right"></TextBlock>
+                </StackPanel>
+            </ui:Button>
+
+        </Grid>
+
+        <ListBox Grid.Row="1" Grid.Column="1" ItemsSource="{Binding TaskDtos}">
+            <ListBox.ItemTemplate>
+                <DataTemplate>
+                    <Components:TaskListItem TaskTitle="{Binding Title}" TaskDescription="{Binding Description}"
+                                         TaskDueTo="{Binding DueDate}"></Components:TaskListItem>
+                </DataTemplate>
+            </ListBox.ItemTemplate>
+        </ListBox>
+
+        <ui:Button Grid.Row="2" Grid.Column="1" HorizontalAlignment="Right" VerticalAlignment="Bottom" BorderBrush="{x:Null}"
+                   Width="80" Height="80" Command="{Binding OpenAddTaskDialogCmd}">
+            <ui:Button.Background>
+                <ImageBrush ImageSource="/Images/AddTask1.png"/>
+            </ui:Button.Background>
+        </ui:Button>
+
+
+
+    </Grid>
+</ui:FluentWindow>

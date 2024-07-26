@@ -1,0 +1,36 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <OutputType>WinExe</OutputType>
+    <TargetFramework>net8.0-Windows</TargetFramework>
+    <Nullable>enable</Nullable>
+    <ImplicitUsings>enable</ImplicitUsings>
+    <UseWPF>true</UseWPF>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <None Remove="Images\AddTask1.png" />
+    <None Remove="Images\AllTasks1.png" />
+    <None Remove="Images\datePicker1.png" />
+    <None Remove="Images\Important1.png" />
+    <None Remove="Images\Important2.png" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <PackageReference Include="WPF-UI" Version="3.0.4" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\TaskCheckService\TaskCheckService.csproj" />
+    <ProjectReference Include="..\TaskCheckStorage\TaskCheckStorage.csproj" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Resource Include="Images\AddTask1.png" />
+    <Resource Include="Images\AllTasks1.png" />
+    <Resource Include="Images\datePicker1.png" />
+    <Resource Include="Images\Important1.png" />
+    <Resource Include="Images\Important2.png" />
+  </ItemGroup>
+
+</Project>
